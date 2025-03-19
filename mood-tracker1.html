@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker</title>
+
+    <style>
+        /* General Page Styling */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+            text-align: center;
+            font-family: 'More Sugar', cursive;
+        }
+
+        /* Mood Tracker Container */
+        .mood-container {
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f3f3f3;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Mood Slider */
+        input[type="range"] {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 10px;
+            background: #ddd;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        /* Slider Thumb (The Button That Slides) */
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            background: #D3D3D3; /* Default Color */
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        /* Mood Display */
+        .mood-display {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+        }
+
+        /* Header Styling */
+        .tracker-title {
+            font-family: 'More Sugar', cursive;
+            font-size: 28px;
+            color: #ecaab7; /* Match the text color from the main page */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Title appears first -->
+    <h1 class="tracker-title">How are you feeling today?</h1>
+
+    <!-- Mood Tracker Section -->
+    <div class="mood-container">
+        <h2>Mood Tracker</h2>
+        <input type="range" id="mood-slider" min="0" max="6" value="3">
+        <p class="mood-display" id="mood-text">Fine</p>
+    </div>
+
+    <script>
+        const moodSlider = document.getElementById("mood-slider");
+        const moodText = document.getElementById("mood-text");
+
+        // Mood List
+        const moods = [
+            { name: "Mad", color: "#D2042D" },         // Cherry Red
+            { name: "Stressed", color: "#FF8C00" },    // Fading Orange
+            { name: "Sad", color: "#FFD700" },        // Golden Yellow
+            { name: "Fine", color: "#D3D3D3" },       // White Mix Grey
+            { name: "Calm", color: "#89CFF0" },       // Baby Blue
+            { name: "Happy", color: "#FFB6C1" },      // Baby Pink
+            { name: "Delightful", color: "#8A2BE2" }  // Violet
+        ];
+
+        // Function to Update Mood
+        function updateMood() {
+            let index = moodSlider.value;
+            moodText.textContent = moods[index].name;
+
+            // Change the color of the slider thumb
+            document.styleSheets[0].addRule(
+                'input[type="range"]::-webkit-slider-thumb',
+                `background: ${moods[index].color} !important;`
+            );
+        }
+
+        // Event Listener for Slider
+        moodSlider.addEventListener("input", updateMood);
+    </script>
+
+</body>
+</html>
