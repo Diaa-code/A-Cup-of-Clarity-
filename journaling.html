@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Input with Background</title>
+    <style>
+        /* Style the input box */
+        #textInput {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ECAAB7;
+            border-radius: 5px;
+            outline: none;
+            margin-bottom: 10px;
+        }
+
+        /* Style the displayed text */
+        .text-container {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 8px;
+            background-color: #FCE4EC; /* Very light shade of #ECAAB7 */
+            border: 2px solid #ECAAB7;
+            font-size: 18px;
+            color: #333;
+            width: fit-content;
+        }
+        .journaling-heading {
+    font-family: 'More Sugar', cursive;
+    font-size: 24px; /* Adjust size if needed */
+    color: #4a4a4a; /* Match the text color from the main page */
+    text-align: center;
+    margin-top: 20px;
+}
+    </style>
+</head>
+<body>
+
+<h3 class="journaling-heading">Let your thoughts flow freely—this is your space to reflect, dream, and rediscover yourself.</h3>
+    
+    <input type="text" id="textInput" placeholder="Type here...">
+    
+    <div id="output"></div> <!-- Where the entered text will be displayed -->
+
+    <script>
+        document.getElementById("textInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter" && this.value.trim() !== "") { 
+                let text = this.value; // Get input value
+                this.value = ""; // Clear input after pressing Enter
+
+                let textBox = document.createElement("div"); // Create a new div
+                textBox.className = "text-container"; // Apply styling
+                textBox.textContent = text; // Add text
+
+                document.getElementById("output").appendChild(textBox); // Display on screen
+            }
+        });
+    </script>
+
+</body>
+</html>

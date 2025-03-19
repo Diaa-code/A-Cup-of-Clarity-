@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Checkboxes with Delete</title>
+  <style>
+    /* Hide the default checkbox */
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    /* Style the label */
+    label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    /* Custom checkbox */
+    .custom-checkbox {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ECAAB7;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 8px;
+      transition: background-color 0.3s ease-in-out, transform 0.2s;
+    }
+
+    /* Hidden checkmark */
+    .custom-checkbox::after {
+      content: "✔";
+      font-size: 14px;
+      color: white;
+      display: none;
+    }
+
+    /* When checked, change background and show checkmark */
+    input[type="checkbox"]:checked + .custom-checkbox {
+      background-color: #ECAAB7;
+      transform: scale(1.1);
+    }
+
+    input[type="checkbox"]:checked + .custom-checkbox::after {
+      display: block;
+    }
+
+    /* Input field style */
+    #newCheckboxText {
+      width: 100%;
+      padding: 8px;
+      border: 2px solid #ECAAB7;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    /* Style the delete button */
+    .delete-btn {
+      background: none;
+      border: none;
+      color: #ECAAB7;
+      font-size: 16px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .delete-btn:hover {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <input type="text" id="newCheckboxText" placeholder="Type here and press Enter">
+  <div id="checkboxList"></div>
+
+  <script>
+    document.getElementById("newCheckboxText").addEventListener("keypress", function(event) {
+      if (event.key === "Enter" && this.value.trim() !== "") { // When Enter is pressed
+        let checkboxContainer = document.createElement("label"); // Creates a new label
+        let newCheckbox = document.createElement("input"); // Creates a new checkbox
+        let customCheckbox = document.createElement("span"); // Creates a custom checkbox
+        let textNode = document.createTextNode(this.value); // Gets user input as text
+        let deleteBtn = document.createElement("button"); // Creates delete button
+
+        newCheckbox.type = "checkbox"; // Set as checkbox
+        newCheckbox.style.display = "none"; // Hide default checkbox
+        customCheckbox.className = "custom-checkbox"; // Apply CSS class
+
+        deleteBtn.textContent = "✖"; // Add X symbol
+        deleteBtn.className = "delete-btn"; // Apply CSS class
+        deleteBtn.addEventListener("click", function() { 
+          checkboxContainer.remove(); // Removes the entire checkbox line
+        });
+
+        checkboxContainer.appendChild(newCheckbox); // Add checkbox
+        checkboxContainer.appendChild(customCheckbox); // Add styled box
+        checkboxContainer.appendChild(textNode); // Add text
+        checkboxContainer.appendChild(deleteBtn); // Add delete button
+
+        document.getElementById("checkboxList").appendChild(checkboxContainer); // Add to list
+
+        this.value = ""; // Clear input after adding
+      }
+    });
+  </script>
+
+
+</body>
+</html>

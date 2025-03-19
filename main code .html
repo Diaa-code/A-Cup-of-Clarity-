@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Cup of Clarity</title>
+    
+    <!-- Google Font for Title -->
+    <link href="https://fonts.googleapis.com/css2?family=More+Sugar&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Page Styling */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            text-align: center;
+            color: #4a4a4a;
+        }
+
+        /* Top Navigation Bar */
+        .header {
+            background-color: #ECAAB7;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-left: 20px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-family: 'More Sugar', cursive;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .nav-links {
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+            margin: 0 10px;
+        }
+
+        /* Quote Section */
+        .quote-container {
+            margin: 40px auto;
+            width: 80%;
+            max-width: 600px;
+            font-family: 'Parisienne', cursive;
+        }
+
+        #quote-text {
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        #quote-author {
+            display: block;
+            font-size: 16px;
+            text-align: right;
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        /* Image Gallery (Updated Grid) */
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Space between images */
+            justify-content: center;
+            width: 80%;
+            max-width: 900px;
+            margin: auto;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            text-align: center;
+            width: 250px; /* Consistent width */
+        }
+
+        .gallery-item img {
+            width: 100%; /* Make images responsive */
+            height: 200px; /* Fixed height for uniformity */
+            object-fit: cover; /* Ensures images are properly cropped */
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item p {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #ECAAB7;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .main-heading {
+    font-family: 'More Sugar', cursive;
+    font-size: 24px; /* Adjust size if needed */
+    color: #4a4a4a; /* Match the text color from the main page */
+    text-align: center;
+    margin-top: 20px;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <img src="logo-image.jpg" alt="Logo" class="logo">
+        <div class="title">A Cup of Clarity</div>
+       <div>
+       	<p style="font-family: 'More Sugar', cursive; font-size: 20px; margin: 0;">
+    Sip in the warmth of self-discovery, reflection, and mindful living—one moment at a time.
+</p>
+       </div>
+    </div>
+
+    <!-- Quote Section -->
+    <div class="quote-container">
+        <p id="quote-text">"Loading quote..."</p>
+        <span id="quote-author"></span>
+    </div>
+
+    <!-- Image Gallery (Updated Grid) -->
+    <div class="gallery-container">
+    	<h3 class="main-heading">     Calendar</h3>
+        <div class="gallery-item">
+            <a href="calendar.html">
+                <img src="calendar.jpg" alt="Calendar">
+            </a>
+       
+        </div>
+             <h3 class="main-heading">  To-Do List</h3>
+        <div class="gallery-item">
+            <a href="todo.html">
+                <img src="todo.jpg" alt="To-Do List">
+            </a>
+        </div>
+            <h3 class="main-heading">    Practicing Gratitude</h3>
+        <div class="gallery-item">
+            <a href="gratitude.html">
+                <img src="gratitude.jpg" alt="Practicing Gratitude">
+            </a>
+
+        </div>
+            <h3 class="main-heading">    Mood Tracker</h3>
+        <div class="gallery-item">
+            <a href="mood-tracker1.html">
+                <img src="mood-tracker.jpg" alt="Mood Tracker">
+            </a>
+        </div>
+            <h3 class="main-heading">   Journaling </h3>
+        <div class="gallery-item">
+            <a href="journaling.html">
+                <img src="journaling.jpg" alt="Journaling">
+            </a>
+
+        </div>
+            <h3 class="main-heading">   Affirmations </h3>
+        <div class="gallery-item">
+            <a href="affirmations.html">
+                <img src="affirmations.jpg" alt="Affirmations">
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        All rights are reserved 2025
+    </div>
+
+    <script>
+        // Quotes Array
+        const quotes = [
+            { text: "When you arise in the morning think of what a privilege it is to be alive, to think, to enjoy, to love...", author: "– Marcus Aurelius" },
+            { text: "Try to surround yourself with positive people who make you happy, sarcastic people who make you laugh, and coffee. You should always surround yourself with coffee.", author: "– Unknown" },
+            { text: "Create the life you can’t wait to wake up to.", author: "– Josie Spinardi" },
+            { text: "Dear Universe, I am open to some awesome coming my way.", author: "– Unknown" },
+            { text: "Every morning we get a chance to be different. A chance to be better. Your past is your past. Leave it there. Get on with the future part.", author: "– Nicole Williams" },
+            { text: "Show me a person who has never made a mistake and I’ll show you someone who has never achieved much.", author: "– Joan Collins" }
+        ];
+
+        const quoteText = document.getElementById("quote-text");
+        const quoteAuthor = document.getElementById("quote-author");
+
+        // Function to display a random quote
+        function showRandomQuote() {
+            let randomIndex = Math.floor(Math.random() * quotes.length);
+            let selectedQuote = quotes[randomIndex];
+
+            // Fade out current quote
+            quoteText.style.opacity = "0";
+            quoteAuthor.style.opacity = "0";
+
+            setTimeout(() => {
+                // Change the quote text and author
+                quoteText.textContent = `"${selectedQuote.text}"`;
+                quoteAuthor.textContent = selectedQuote.author;
+
+                // Fade in the new quote
+                quoteText.style.opacity = "1";
+                quoteAuthor.style.opacity = "1";
+            }, 1500);
+        }
+
+        // Change quote every 5 seconds
+        setInterval(showRandomQuote, 5000);
+
+        // Show the first quote immediately
+        showRandomQuote();
+    </script>
+
+</body>
+</html>
